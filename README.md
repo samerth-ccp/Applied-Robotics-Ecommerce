@@ -40,8 +40,8 @@ A complete e-commerce website for Applied Robotics selling the Auro Ring Heart R
 ## 💳 Stripe Configuration
 
 ### Current Setup
-- **Publishable Key**: `pk_test_51RrQMWAicdvqG4FAOpp4PrpbUysLzY6lBuJNyzBJwGJBFijQHRFhn3Yj1CgwjTSpqDMMDzHsVO8sZjUI56I4Ogvc008L14DcCZ`
-- **Secret Key**: `sk_test_51RrQMWAicdvqG4FAfkp3Icn8XtZa8BetPApcma2Vl2kR2fRaG4ve94YVBYJZVZWUbXq4zj07eJT716aOfH3lyWjo001adtn8xp`
+- **Publishable Key**: `pk_test_your_publishable_key_here`
+- **Secret Key**: `sk_test_your_secret_key_here`
 
 ### For Production
 1. Replace test keys with live keys in `server.js`
