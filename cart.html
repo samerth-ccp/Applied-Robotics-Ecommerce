@@ -161,7 +161,7 @@
                 const quantity = parseInt(document.getElementById('quantity').value);
 
                 // Initialize Stripe with your publishable key
-                const stripe = Stripe('pk_test_51RrQMWAicdvqG4FAfkp3Icn8XtZa8BetPApcma2Vl2kR2fRaG4ve94YVBYJZVZWUbXq4zj07eJT716aOfH3lyWjo001adtn8xp');
+                const stripe = Stripe('pk_test_51RrQMWAicdvqG4FAOpp4PrpbUysLzY6lBuJNyzBJwGJBFijQHRFhn3Yj1CgwjTSpqDMMDzHsVO8sZjUI56I4Ogvc008L14DcCZ');
 
                 // Create checkout session with the actual quantity
                 fetch('/create-checkout-session', {
@@ -185,17 +185,20 @@
                 })
                 .then(session => {
                     console.log('Session response:', session);
-                    if (!session.id) {
+                    if (!session || !session.id) {
                         throw new Error('No session ID received from server');
                     }
-                    // Use the session ID to redirect to Stripe checkout
-                    stripe.redirectToCheckout({
+                    // Redirect to Stripe checkout
+                    return stripe.redirectToCheckout({
                         sessionId: session.id
-                    }).then(function (result) {
-                        if (result.error) {
-                            alert(result.error.message);
-                        }
                     });
+                })
+                .then(result => {
+                    // This will only execute if redirectToCheckout fails
+                    if (result && result.error) {
+                        console.error('Stripe redirect error:', result.error);
+                        alert('Payment redirect failed: ' + result.error.message);
+                    }
                 })
                 .catch(error => {
                     console.error('Error:', error);
