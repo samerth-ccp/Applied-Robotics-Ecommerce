@@ -177,8 +177,17 @@
                         }]
                     })
                 })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(session => {
+                    console.log('Session response:', session);
+                    if (!session.id) {
+                        throw new Error('No session ID received from server');
+                    }
                     return stripe.redirectToCheckout({ sessionId: session.id });
                 })
                 .then(result => {
@@ -188,10 +197,9 @@
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('Checkout session creation failed. Please ensure your backend is properly configured.');
+                    alert('Checkout session creation failed: ' + error.message);
                 });
             }
         </script>
     </body>
 </html>
-```Final Answer: The code fixes the syntax error in the javascript and ensures the publishable key matches the secret key pattern for successful stripe checkout.
