@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Debug</title>
+</head>
+<body>
+    <h1>Image Loading Test</h1>
+    
+    <h2>Testing Smart Ring Image:</h2>
+    <img src="./img/smart_ring.jpg" alt="Smart Ring" style="width: 200px; border: 1px solid red;" onload="console.log('Smart ring image loaded')" onerror="console.log('Smart ring image failed to load')">
+    
+    <h2>Testing Heart Monitor Image:</h2>
+    <img src="./img/heart_monitor.jpg" alt="Heart Monitor" style="width: 200px; border: 1px solid red;" onload="console.log('Heart monitor image loaded')" onerror="console.log('Heart monitor image failed to load')">
+    
+    <h2>Directory listing check:</h2>
+    <script>
+        fetch('./img/smart_ring.jpg')
+            .then(response => {
+                if (response.ok) {
+                    console.log('smart_ring.jpg exists and is accessible');
+                } else {
+                    console.log('smart_ring.jpg not found or not accessible');
+                }
+            })
+            .catch(error => {
+                console.log('Error checking smart_ring.jpg:', error);
+            });
+            
+        fetch('./img/heart_monitor.jpg')
+            .then(response => {
+                if (response.ok) {
+                    console.log('heart_monitor.jpg exists and is accessible');
+                } else {
+                    console.log('heart_monitor.jpg not found or not accessible');
+                }
+            })
+            .catch(error => {
+                console.log('Error checking heart_monitor.jpg:', error);
+            });
+    </script>
+</body>
+</html>
