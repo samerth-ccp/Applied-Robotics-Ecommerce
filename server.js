@@ -34,7 +34,7 @@ app.post("/create-checkout-session", async (req, res) => {
                     product_data: {
                         name: item.name,
                         images: [
-                            "https://your-domain.com/img/heart_monitor.jpg",
+                            "https://your-domain.com/img/smart_ring.jpg",
                         ], // Replace with your actual image URL
                     },
                     unit_amount: item.price,
