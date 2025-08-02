@@ -14,7 +14,13 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(".")); // Serve static files from current directory
+app.use(express.static(".", {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.jpg') || path.endsWith('.png') || path.endsWith('.webp')) {
+            res.setHeader('Cache-Control', 'public, max-age=31536000');
+        }
+    }
+})); // Serve static files from current directory
 
 // Routes
 app.get("/", (req, res) => {
