@@ -45,7 +45,7 @@ app.post("/create-checkout-session", async (req, res) => {
             success_url: `${req.protocol}://${req.get("host")}/success?quantity=${req.body.items[0].quantity}`,
             cancel_url: `${req.protocol}://${req.get("host")}/cart.html`,
             metadata: {
-                product_name: "Auro Ring Heart Rate Monitor",
+                product_name: "Smart Ring",
                 company: "Applied Robotics",
             },
         });
