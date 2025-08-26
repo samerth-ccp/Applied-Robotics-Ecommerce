@@ -685,39 +685,6 @@ footer .copyright {
   line-height: 25px;
 }
 
-.product-features {
-  margin: 20px 0;
-}
-
-.feature-item {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-  padding: 8px 0;
-}
-
-.feature-item i {
-  color: #088178;
-  font-size: 18px;
-  margin-right: 12px;
-  width: 20px;
-}
-
-.feature-item span {
-  color: #666;
-  font-size: 14px;
-}
-
-#related-products {
-  text-align: center;
-  margin-top: 50px;
-}
-
-#related-products h2 {
-  margin-bottom: 30px;
-  color: #1a1a1a;
-}
-
 /* Blog Page */
 
 #page-header.blog-header {
