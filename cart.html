@@ -38,7 +38,7 @@
         </section>
 
         <section id="cart" class="section-p1">
-            <table width="100%">
+            <table width="100%" id="cart-table">
                 <thead>
                     <tr>
                         <td>Remove</td>
@@ -50,16 +50,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><i class='bx bx-x-circle'></i></td>
-                        <td><img src="./img/heart_monitor.jpg" alt=""></td>
-                        <td>Smart Ring</td>
-                        <td>$249.99</td>
-                        <td><input type="number" id="quantity" value="1" min="1" onchange="updateTotal()"></td>
-                        <td id="subtotal">$249.99</td>
-                    </tr>
+                    <!-- Cart items will be dynamically loaded here -->
                 </tbody>
             </table>
+            <p id="cart-message" style="text-align: center; margin-top: 20px;">Your cart is empty.</p>
         </section>
 
         <section id="cart-add" class="section-p1">
@@ -76,7 +70,7 @@
                 <table>
                     <tr>
                         <td>Cart Subtotal</td>
-                        <td id="cart-subtotal">$249.99</td>
+                        <td id="cart-subtotal">$0.00</td>
                     </tr>
                     <tr>
                         <td>Shipping</td>
@@ -84,10 +78,10 @@
                     </tr>
                     <tr>
                         <td><strong>Total</strong></td>
-                        <td><strong id="cart-total">$249.99</strong></td>
+                        <td><strong id="cart-total">$0.00</strong></td>
                     </tr>
                 </table>
-                <button class="normal" onclick="redirectToStripe()">Proceed to checkout</button>
+                <button class="normal" onclick="proceedToCheckout()">Proceed to checkout</button>
             </div>
         </section>
 
@@ -144,67 +138,105 @@
              </div>
         </footer>
 
-        <script src="script.js"></script>
         <script>
-            function updateTotal() {
-                const quantity = parseInt(document.getElementById('quantity').value);
-                const price = 249.99;
-                const total = quantity * price;
+            // Load cart item from localStorage
+            document.addEventListener('DOMContentLoaded', function() {
+                const cartItem = JSON.parse(localStorage.getItem('cartItem'));
+                const cartTable = document.getElementById('cart-table');
+                const cartMessage = document.getElementById('cart-message');
 
-                document.getElementById('subtotal').textContent = `$${total.toFixed(2)}`;
-                document.getElementById('cart-subtotal').textContent = `$${total.toFixed(2)}`;
-                document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+                if (cartItem) {
+                    // Show cart table and populate it
+                    cartTable.style.display = 'table';
+                    cartMessage.style.display = 'none';
+
+                    // Add item to table
+                    const tbody = cartTable.querySelector('tbody');
+                    const subtotal = (cartItem.price * cartItem.quantity) / 100; // Convert from cents
+
+                    tbody.innerHTML = `
+                        <tr>
+                            <td><a href="#" onclick="removeFromCart()"><i class='bx bx-x-circle'></i></a></td>
+                            <td><img src="${cartItem.image}" alt="${cartItem.name}"></td>
+                            <td>${cartItem.name}<br><small>Size: ${cartItem.size}, Color: ${cartItem.color}</small></td>
+                            <td>$${(cartItem.price / 100).toFixed(2)}</td>
+                            <td><input type="number" value="${cartItem.quantity}" min="1" onchange="updateQuantity(this.value)"></td>
+                            <td>$${subtotal.toFixed(2)}</td>
+                        </tr>
+                    `;
+
+                    // Update subtotal
+                    document.querySelector('#subtotal table tbody').innerHTML = `
+                        <tr>
+                            <td>Cart Subtotal</td>
+                            <td>$${subtotal.toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                            <td>Shipping</td>
+                            <td>Free</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>$${subtotal.toFixed(2)}</strong></td>
+                        </tr>
+                    `;
+                } else {
+                    // Show empty cart message
+                    cartTable.style.display = 'none';
+                    cartMessage.style.display = 'block';
+                }
+            });
+
+            function removeFromCart() {
+                localStorage.removeItem('cartItem');
+                location.reload();
             }
 
-            function redirectToStripe() {
-                // Get the current quantity from the cart
-                const quantity = parseInt(document.getElementById('quantity').value);
+            function updateQuantity(newQuantity) {
+                const cartItem = JSON.parse(localStorage.getItem('cartItem'));
+                if (cartItem) {
+                    cartItem.quantity = parseInt(newQuantity);
+                    localStorage.setItem('cartItem', JSON.stringify(cartItem));
+                    location.reload();
+                }
+            }
 
-                // Initialize Stripe with your publishable key
-                const stripe = Stripe('pk_test_51RrQMWAicdvqG4FAOpp4PrpbUysLzY6lBuJNyzBJwGJBFijQHRFhn3Yj1CgwjTSpqDMMDzHsVO8sZjUI56I4Ogvc008L14DcCZ');
+            async function proceedToCheckout() {
+                const cartItem = JSON.parse(localStorage.getItem('cartItem'));
+                if (!cartItem) {
+                    alert('Your cart is empty');
+                    return;
+                }
 
-                // Create checkout session with the actual quantity
-                fetch('/create-checkout-session', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        items: [{
-                            name: 'Smart Ring',
-                            price: 24999, // Price in cents ($249.99)
-                            quantity: quantity
-                        }]
-                    })
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(session => {
-                    console.log('Session response:', session);
-                    if (!session || !session.id) {
-                        throw new Error('No session ID received from server');
-                    }
-                    // Redirect to Stripe checkout
-                    return stripe.redirectToCheckout({
+                try {
+                    const response = await fetch('/create-checkout-session', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            items: [cartItem]
+                        }),
+                    });
+
+                    const session = await response.json();
+
+                    // Redirect to Stripe Checkout
+                    const stripe = Stripe('pk_test_51RrQMWAicdvqG4FAYvN8HxwJpAGaLvEayXo1V8fTFRnJPHd5J4Y4Q8KfJOqZOkHfJH1JGfJKHgRaGTrRKY7zJo7F00lHrHKT7z'); // Replace with your publishable key
+                    const { error } = await stripe.redirectToCheckout({
                         sessionId: session.id
                     });
-                })
-                .then(result => {
-                    // This will only execute if redirectToCheckout fails
-                    if (result && result.error) {
-                        console.error('Stripe redirect error:', result.error);
-                        alert('Payment redirect failed: ' + result.error.message);
+
+                    if (error) {
+                        console.error('Error:', error);
                     }
-                })
-                .catch(error => {
+                } catch (error) {
                     console.error('Error:', error);
-                    alert('Checkout session creation failed: ' + error.message);
-                });
+                    alert('Something went wrong. Please try again.');
+                }
             }
         </script>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script src="script.js"></script>
     </body>
 </html>

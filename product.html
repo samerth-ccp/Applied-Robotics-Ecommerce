@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Ring - Applied Robotics</title>
+    <link rel="icon" type="image/x-icon" href="/img/icon1.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section id="header">
+        <a href="#"><img src="img/winrx_logo.png" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class='bx bx-shopping-bag'></i></a></li>
+                <a href="#" id="close"><i class='bx bx-x'></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class='bx bx-shopping-bag'></i></a>
+            <i id="bar" class='bx bx-menu'></i>
+        </div>
+    </section>
+
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="./attached_assets/image_1754091350000.png" width="100%" id="MainImg" alt="Smart Ring">
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="./attached_assets/image_1754091350000.png" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="./attached_assets/image_1754091549310.png" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="./attached_assets/oura-4-on-finger-820x461_1754093459665.avif" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="./attached_assets/wearing-oura-ringconn_1754093365613.webp" width="100%" class="small-img" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="single-pro-details">
+            <h6>Home / Smart Ring</h6>
+            <h4>Professional Smart Ring</h4>
+            <h2>$249.99</h2>
+            <select id="ring-size">
+                <option>Select Ring Size</option>
+                <option value="6">Size 6</option>
+                <option value="7">Size 7</option>
+                <option value="8">Size 8</option>
+                <option value="9">Size 9</option>
+                <option value="10">Size 10</option>
+                <option value="11">Size 11</option>
+                <option value="12">Size 12</option>
+            </select>
+            <select id="ring-color">
+                <option>Select Color</option>
+                <option value="black">Stealth Black</option>
+                <option value="silver">Heritage Silver</option>
+                <option value="gold">Horizon Gold</option>
+            </select>
+            <input type="number" value="1" min="1" id="quantity">
+            <button class="normal" onclick="addToCart()">Add To Cart</button>
+            
+            <h4>Product Features</h4>
+            <div class="product-features">
+                <div class="feature-item">
+                    <i class='bx bxs-heart'></i>
+                    <span>24/7 Heart Rate Monitoring</span>
+                </div>
+                <div class="feature-item">
+                    <i class='bx bx-moon'></i>
+                    <span>Advanced Sleep Tracking</span>
+                </div>
+                <div class="feature-item">
+                    <i class='bx bx-droplet'></i>
+                    <span>Waterproof Design (5ATM)</span>
+                </div>
+                <div class="feature-item">
+                    <i class='bx bx-battery'></i>
+                    <span>7-Day Battery Life</span>
+                </div>
+                <div class="feature-item">
+                    <i class='bx bx-wifi'></i>
+                    <span>Bluetooth 5.0 Connectivity</span>
+                </div>
+                <div class="feature-item">
+                    <i class='bx bx-mobile'></i>
+                    <span>iOS & Android Compatible</span>
+                </div>
+            </div>
+            
+            <h4>Product Details</h4>
+            <span>The Applied Robotics Smart Ring is a cutting-edge wearable health monitor that delivers comprehensive biometric tracking in a sleek, comfortable design. This medical-grade device continuously monitors your heart rate, tracks sleep patterns, measures activity levels, and provides detailed health insights through our advanced mobile application.
+
+            Built with titanium construction and sapphire crystal sensors, the ring offers exceptional durability while maintaining a lightweight feel. The device features advanced optical sensors for precise heart rate variability measurement, temperature sensing for fever detection, and motion sensors for activity tracking.
+
+            Perfect for healthcare professionals, fitness enthusiasts, and anyone committed to optimizing their health and wellness journey.</span>
+        </div>
+    </section>
+
+    <section id="related-products" class="section-p1">
+        <h2>You May Also Like</h2>
+        <div class="pro-container">
+            <div class="pro">
+                <img class="shirt" src="./attached_assets/image_1754092144785.png" alt="Fitness Tracker" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                <div class="des">
+                    <span>Applied Robotics</span>
+                    <h5>Fitness Band Pro</h5>
+                    <div class="star">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>$199.99</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart cart'></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest healthcare technology and <span>special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="./img/winrx_logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Box 205 Stn. Fort Langley, Langley, BC, V1M 2R5</p>
+            <p><strong>Phone:</strong> (778) 949 - 6264</p>
+            <p><strong>Hours:</strong> 9:00 - 17:00, Mon - Fri PST</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class='bx bxl-facebook'></i>
+                    <i class='bx bxl-twitter'></i>
+                    <i class='bx bxl-instagram'></i>
+                    <i class='bx bxl-pinterest-alt'></i>
+                    <i class='bx bxl-youtube'></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="./img/pay/app.jpg" alt="">
+                <img src="./img/pay/play.jpg" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="./img/pay/pay.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <p>© 2025, Applied Robotics - Healthcare Technology Solutions</p>
+        </div>
+    </footer>
+
+    <script>
+        var MainImg = document.getElementById('MainImg');
+        var smallImg = document.getElementsByClassName('small-img');
+        
+        for(let i = 0; i < smallImg.length; i++) {
+            smallImg[i].onclick = function(){
+                MainImg.src = smallImg[i].src;
+            }
+        }
+
+        function addToCart() {
+            const size = document.getElementById('ring-size').value;
+            const color = document.getElementById('ring-color').value;
+            const quantity = document.getElementById('quantity').value;
+            
+            if(size === 'Select Ring Size') {
+                alert('Please select a ring size');
+                return;
+            }
+            if(color === 'Select Color') {
+                alert('Please select a color');
+                return;
+            }
+            
+            // Store selection in localStorage for cart page
+            const cartItem = {
+                name: 'Professional Smart Ring',
+                price: 24999, // price in cents for Stripe
+                size: size,
+                color: color,
+                quantity: parseInt(quantity),
+                image: './attached_assets/image_1754091350000.png'
+            };
+            
+            localStorage.setItem('cartItem', JSON.stringify(cartItem));
+            window.location.href = 'cart.html';
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
