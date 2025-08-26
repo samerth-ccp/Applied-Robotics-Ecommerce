@@ -31,71 +31,324 @@
             </div>
         </section>
 
+        <!-- Product Hero Section -->
+        <section id="product-hero" class="section-p1">
+            <div class="product-badge">
+                <span class="badge-new">NEW</span>
+                <span class="badge-bestseller">BESTSELLER</span>
+            </div>
+        </section>
+
         <section id="prodetails" class="section-p1">
             <div class="single-pro-image">
-                <img src="./img/smart_ring.avif" width="100%" id="MainImg" alt="Smart Ring" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                <div class="main-image-container">
+                    <img src="./img/smart_ring.avif" width="100%" id="MainImg" alt="Smart Ring" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                    <div class="image-zoom-overlay">
+                        <i class='bx bx-search-alt'></i>
+                        <span>Click to zoom</span>
+                    </div>
+                </div>
 
                 <div class="small-img-group">
-                    <div class="small-img-col">
-                        <img src="./img/smart_ring.avif" width="100%" class="small-img" alt="Smart Ring" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                    <div class="small-img-col active">
+                        <img src="./img/smart_ring.avif" width="100%" class="small-img" alt="Smart Ring Main" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
                     </div>
                     <div class="small-img-col">
-                        <img src="./img/smart_ring.avif" width="100%" class="small-img" alt="Smart Ring" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                        <img src="./img/smart_ring.avif" width="100%" class="small-img" alt="Smart Ring Side" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
                     </div>
                     <div class="small-img-col">
-                        <img src="./img/smart_ring.avif" width="100%" class="small-img" alt="Smart Ring" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                        <img src="./img/smart_ring.avif" width="100%" class="small-img" alt="Smart Ring App" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
                     </div>
                     <div class="small-img-col">
-                        <img src="./img/smart_ring.avif" width="100%" class="small-img" alt="Smart Ring" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                        <img src="./img/smart_ring.avif" width="100%" class="small-img" alt="Smart Ring Charging" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
                     </div>
                 </div>
             </div>
 
             <div class="single-pro-details">
-                <h6>Home / Smart Ring</h6>
-                <h4>Smart Ring - Advanced Health Monitor</h4>
-                <h2>$249.99</h2>
-                <select>
-                    <option>Select Size</option>
-                    <option>Size 6</option>
-                    <option>Size 7</option>
-                    <option>Size 8</option>
-                    <option>Size 9</option>
-                    <option>Size 10</option>
-                    <option>Size 11</option>
-                    <option>Size 12</option>
-                </select>
-                <input type="number" value="1" min="1" max="10">
-                <button class="normal" id="add-to-cart">Add To Cart</button>
-                <h4>Product Details</h4>
-                <span>The Smart Ring by Applied Robotics is a revolutionary health monitoring device that tracks your vital signs 24/7. This state-of-the-art wearable technology features continuous heart rate monitoring, sleep tracking, activity detection, and temperature sensing. With its sleek titanium design and advanced sensors, the Smart Ring provides medical-grade accuracy while maintaining comfort for all-day wear. The device syncs seamlessly with your smartphone and offers up to 7 days of battery life on a single charge.</span>
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <span>Smart Ring</span>
+                </nav>
                 
-                <div class="features-list" style="margin-top: 20px;">
-                    <h4>Key Features</h4>
-                    <ul style="margin-left: 20px; color: #465b52;">
-                        <li>24/7 Heart Rate Monitoring</li>
-                        <li>Sleep Stage Tracking</li>
-                        <li>Activity & Workout Detection</li>
-                        <li>Body Temperature Monitoring</li>
-                        <li>7-Day Battery Life</li>
-                        <li>Waterproof Design (IP68)</li>
-                        <li>Smartphone App Integration</li>
-                        <li>Medical-Grade Accuracy</li>
-                    </ul>
+                <div class="product-header">
+                    <div class="brand-rating">
+                        <span class="brand">Applied Robotics</span>
+                        <div class="rating-container">
+                            <div class="stars">
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                            </div>
+                            <span class="rating-text">(127 reviews)</span>
+                        </div>
+                    </div>
+                    <h1>Smart Ring - Advanced Health Monitor</h1>
+                    <p class="product-subtitle">Revolutionary 24/7 health tracking in a sleek titanium design</p>
                 </div>
 
-                <div class="tech-specs" style="margin-top: 20px;">
-                    <h4>Technical Specifications</h4>
-                    <ul style="margin-left: 20px; color: #465b52;">
-                        <li>Material: Titanium with Bio-compatible coating</li>
-                        <li>Weight: 4-6g (depending on size)</li>
-                        <li>Battery: Lithium-ion, 7-day life</li>
-                        <li>Charging: Wireless charging dock</li>
-                        <li>Connectivity: Bluetooth 5.0</li>
-                        <li>Sensors: PPG, Temperature, Accelerometer, Gyroscope</li>
-                        <li>App: iOS & Android compatible</li>
-                        <li>Warranty: 2-year manufacturer warranty</li>
-                    </ul>
+                <div class="price-section">
+                    <div class="price-container">
+                        <span class="current-price">$249.99</span>
+                        <span class="original-price">$299.99</span>
+                        <span class="discount-badge">17% OFF</span>
+                    </div>
+                    <div class="shipping-info">
+                        <i class='bx bx-package'></i>
+                        <span>Free shipping on orders over $200</span>
+                    </div>
+                </div>
+
+                <div class="product-options">
+                    <div class="size-selector">
+                        <label for="size-select">Size:</label>
+                        <select id="size-select" required>
+                            <option value="">Select Size</option>
+                            <option value="6">Size 6 (16.5mm)</option>
+                            <option value="7">Size 7 (17.3mm)</option>
+                            <option value="8">Size 8 (18.2mm)</option>
+                            <option value="9">Size 9 (19.0mm)</option>
+                            <option value="10">Size 10 (19.8mm)</option>
+                            <option value="11">Size 11 (20.6mm)</option>
+                            <option value="12">Size 12 (21.4mm)</option>
+                        </select>
+                        <a href="#size-guide" class="size-guide-link">Size Guide</a>
+                    </div>
+
+                    <div class="color-selector">
+                        <label>Color:</label>
+                        <div class="color-options">
+                            <div class="color-option active" data-color="titanium" style="background: linear-gradient(45deg, #c0c0c0, #808080);"></div>
+                            <div class="color-option" data-color="black" style="background: #1a1a1a;"></div>
+                            <div class="color-option" data-color="gold" style="background: linear-gradient(45deg, #ffd700, #ffb347);"></div>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantity:</label>
+                        <div class="quantity-controls">
+                            <button type="button" class="qty-btn minus">-</button>
+                            <input type="number" id="quantity" value="1" min="1" max="10">
+                            <button type="button" class="qty-btn plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary" id="add-to-cart">
+                        <i class='bx bx-cart'></i>
+                        Add To Cart
+                    </button>
+                    <button class="btn-secondary" id="buy-now">
+                        <i class='bx bx-lightning'></i>
+                        Buy Now
+                    </button>
+                    <button class="btn-wishlist" id="add-to-wishlist">
+                        <i class='bx bx-heart'></i>
+                    </button>
+                </div>
+
+                <div class="trust-signals">
+                    <div class="trust-item">
+                        <i class='bx bx-shield-check'></i>
+                        <span>2-Year Warranty</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class='bx bx-refresh'></i>
+                        <span>30-Day Returns</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class='bx bx-support'></i>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Information Tabs -->
+        <section id="product-tabs" class="section-p1">
+            <div class="tabs-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="description">Description</button>
+                    <button class="tab-btn" data-tab="features">Features</button>
+                    <button class="tab-btn" data-tab="specs">Specifications</button>
+                    <button class="tab-btn" data-tab="reviews">Reviews</button>
+                    <button class="tab-btn" data-tab="qa">Q&A</button>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-panel active" id="description">
+                        <h3>Product Description</h3>
+                        <p>The Smart Ring by Applied Robotics represents the pinnacle of wearable health technology. This revolutionary device transforms your finger into a comprehensive health monitoring station, providing continuous, medical-grade tracking of your vital signs without compromising on style or comfort.</p>
+                        
+                        <p>Crafted from premium titanium with a bio-compatible coating, the Smart Ring is designed for 24/7 wear. Its advanced sensor array includes photoplethysmography (PPG) sensors for heart rate monitoring, temperature sensors for body temperature tracking, and motion sensors for activity detection and sleep analysis.</p>
+                        
+                        <p>Whether you're an athlete looking to optimize performance, a health-conscious individual monitoring wellness trends, or someone with specific health concerns requiring continuous monitoring, the Smart Ring provides the insights you need to make informed decisions about your health.</p>
+                        
+                        <div class="product-highlights">
+                            <div class="highlight-item">
+                                <i class='bx bx-heart'></i>
+                                <h4>Continuous Heart Monitoring</h4>
+                                <p>Track your heart rate variability and resting heart rate 24/7</p>
+                            </div>
+                            <div class="highlight-item">
+                                <i class='bx bx-moon'></i>
+                                <h4>Advanced Sleep Tracking</h4>
+                                <p>Monitor sleep stages, quality, and recovery metrics</p>
+                            </div>
+                            <div class="highlight-item">
+                                <i class='bx bx-run'></i>
+                                <h4>Activity Detection</h4>
+                                <p>Automatically recognize workouts and daily activities</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <i class='bx bx-pulse'></i>
+                                <h4>24/7 Heart Rate Monitoring</h4>
+                                <p>Continuous heart rate tracking with medical-grade accuracy. Monitor resting heart rate, heart rate variability, and detect irregular patterns.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class='bx bx-bed'></i>
+                                <h4>Sleep Stage Tracking</h4>
+                                <p>Detailed sleep analysis including REM, deep sleep, and light sleep phases. Get personalized sleep recommendations.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class='bx bx-dumbbell'></i>
+                                <h4>Workout Detection</h4>
+                                <p>Automatically recognizes 15+ workout types and provides detailed performance metrics and recovery insights.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class='bx bx-thermometer'></i>
+                                <h4>Body Temperature</h4>
+                                <p>Continuous body temperature monitoring to track health trends and detect early signs of illness.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class='bx bx-battery'></i>
+                                <h4>7-Day Battery Life</h4>
+                                <p>Ultra-efficient power management provides up to 7 days of continuous monitoring on a single charge.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class='bx bx-water'></i>
+                                <h4>Waterproof Design</h4>
+                                <p>IP68 rating means you can wear it while swimming, showering, or in any weather condition.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="specs">
+                        <h3>Technical Specifications</h3>
+                        <div class="specs-table">
+                            <div class="spec-row">
+                                <span class="spec-label">Material</span>
+                                <span class="spec-value">Titanium with bio-compatible coating</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Weight</span>
+                                <span class="spec-value">4-6g (varies by size)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Battery Life</span>
+                                <span class="spec-value">Up to 7 days continuous use</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Charging</span>
+                                <span class="spec-value">Wireless charging dock (included)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Connectivity</span>
+                                <span class="spec-value">Bluetooth 5.0 LE</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Sensors</span>
+                                <span class="spec-value">PPG, Temperature, 3-axis Accelerometer, Gyroscope</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Water Resistance</span>
+                                <span class="spec-value">IP68 (100m water resistance)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">App Compatibility</span>
+                                <span class="spec-value">iOS 12+ and Android 8+</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Warranty</span>
+                                <span class="spec-value">2-year manufacturer warranty</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="reviews">
+                        <h3>Customer Reviews</h3>
+                        <div class="reviews-summary">
+                            <div class="overall-rating">
+                                <span class="rating-number">4.8</span>
+                                <div class="rating-stars">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                </div>
+                                <span class="reviews-count">Based on 127 reviews</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Sarah M.</span>
+                                    <div class="review-rating">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                    </div>
+                                    <span class="review-date">2 weeks ago</span>
+                                </div>
+                                <p class="review-text">"Absolutely love this smart ring! The sleep tracking is incredibly accurate and the battery life is fantastic. I've been wearing it for 3 months now and it's become an essential part of my health routine."</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Michael R.</span>
+                                    <div class="review-rating">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bx-star'></i>
+                                    </div>
+                                    <span class="review-date">1 month ago</span>
+                                </div>
+                                <p class="review-text">"Great device for fitness tracking. The heart rate monitoring is very accurate compared to my chest strap. Only wish the app had more customization options."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="qa">
+                        <h3>Questions & Answers</h3>
+                        <div class="qa-list">
+                            <div class="qa-item">
+                                <h4 class="question">Q: How accurate is the heart rate monitoring?</h4>
+                                <p class="answer">A: The Smart Ring uses medical-grade PPG sensors with clinical accuracy of ±2 BPM, validated against ECG monitoring in independent studies.</p>
+                            </div>
+                            <div class="qa-item">
+                                <h4 class="question">Q: Can I wear it while swimming?</h4>
+                                <p class="answer">A: Yes! The Smart Ring has IP68 water resistance rating and can be worn while swimming, showering, or in any water activity up to 100 meters depth.</p>
+                            </div>
+                            <div class="qa-item">
+                                <h4 class="question">Q: How do I know what size to order?</h4>
+                                <p class="answer">A: We recommend ordering our free sizing kit first, or you can measure your finger circumference with a string and compare to our size chart. The ring should fit snugly but comfortably.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -204,23 +457,90 @@
         </footer>
 
         <script>
+            // Image gallery functionality
             var MainImg = document.getElementById("MainImg");
             var smallimg = document.getElementsByClassName("small-img");
+            var smallimgCol = document.getElementsByClassName("small-img-col");
 
             for (let i = 0; i < smallimg.length; i++) {
                 smallimg[i].onclick = function() {
                     MainImg.src = smallimg[i].src;
+                    
+                    // Update active state
+                    for (let j = 0; j < smallimgCol.length; j++) {
+                        smallimgCol[j].classList.remove('active');
+                    }
+                    smallimgCol[i].classList.add('active');
                 }
             }
 
+            // Color selection functionality
+            const colorOptions = document.querySelectorAll('.color-option');
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    colorOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Quantity controls
+            const quantityInput = document.getElementById('quantity');
+            const minusBtn = document.querySelector('.qty-btn.minus');
+            const plusBtn = document.querySelector('.qty-btn.plus');
+
+            minusBtn.addEventListener('click', function() {
+                const currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                }
+            });
+
+            plusBtn.addEventListener('click', function() {
+                const currentValue = parseInt(quantityInput.value);
+                if (currentValue < 10) {
+                    quantityInput.value = currentValue + 1;
+                }
+            });
+
+            // Tab functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and panels
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabPanels.forEach(p => p.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding panel
+                    this.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+
+            // Wishlist functionality
+            document.getElementById('add-to-wishlist').addEventListener('click', function() {
+                this.style.color = this.style.color === 'rgb(255, 107, 107)' ? '#666' : '#ff6b6b';
+                
+                // You can add actual wishlist functionality here
+                const isAdded = this.style.color === 'rgb(255, 107, 107)';
+                const message = isAdded ? 'Added to wishlist!' : 'Removed from wishlist!';
+                
+                // Show a subtle notification
+                showNotification(message);
+            });
+
             // Add to cart functionality
             document.getElementById('add-to-cart').addEventListener('click', function() {
-                // Get selected size and quantity
-                const sizeSelect = document.querySelector('select');
-                const quantityInput = document.querySelector('input[type="number"]');
+                // Get selected options
+                const sizeSelect = document.getElementById('size-select');
+                const quantityInput = document.getElementById('quantity');
+                const selectedColor = document.querySelector('.color-option.active').getAttribute('data-color');
                 
-                if (sizeSelect.value === 'Select Size') {
-                    alert('Please select a size before adding to cart.');
+                if (!sizeSelect.value) {
+                    showNotification('Please select a size before adding to cart.', 'error');
                     return;
                 }
                 
@@ -229,6 +549,7 @@
                     name: 'Smart Ring',
                     price: 24999, // Price in cents
                     size: sizeSelect.value,
+                    color: selectedColor,
                     quantity: parseInt(quantityInput.value),
                     image: './img/smart_ring.avif'
                 };
@@ -236,8 +557,12 @@
                 // Get existing cart or create new one
                 let cart = JSON.parse(localStorage.getItem('cart')) || [];
                 
-                // Check if item already exists with same size
-                const existingItemIndex = cart.findIndex(item => item.name === cartItem.name && item.size === cartItem.size);
+                // Check if item already exists with same size and color
+                const existingItemIndex = cart.findIndex(item => 
+                    item.name === cartItem.name && 
+                    item.size === cartItem.size && 
+                    item.color === cartItem.color
+                );
                 
                 if (existingItemIndex > -1) {
                     cart[existingItemIndex].quantity += cartItem.quantity;
@@ -247,7 +572,107 @@
                 
                 localStorage.setItem('cart', JSON.stringify(cart));
                 
-                alert('Item added to cart successfully!');
+                // Update button temporarily to show success
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="bx bx-check"></i>Added to Cart!';
+                this.style.background = '#4CAF50';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.background = '#088178';
+                }, 2000);
+                
+                showNotification('Item added to cart successfully!', 'success');
+            });
+
+            // Buy now functionality
+            document.getElementById('buy-now').addEventListener('click', function() {
+                const sizeSelect = document.getElementById('size-select');
+                
+                if (!sizeSelect.value) {
+                    showNotification('Please select a size before purchasing.', 'error');
+                    return;
+                }
+                
+                // Add to cart first
+                document.getElementById('add-to-cart').click();
+                
+                // Redirect to cart after a brief delay
+                setTimeout(() => {
+                    window.location.href = 'cart.html';
+                }, 1000);
+            });
+
+            // Notification function
+            function showNotification(message, type = 'info') {
+                // Remove existing notification if any
+                const existingNotification = document.querySelector('.notification');
+                if (existingNotification) {
+                    existingNotification.remove();
+                }
+                
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.textContent = message;
+                
+                // Style the notification
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    color: white;
+                    font-weight: 600;
+                    z-index: 1000;
+                    opacity: 0;
+                    transform: translateX(100%);
+                    transition: all 0.3s ease;
+                `;
+                
+                // Set background color based on type
+                switch(type) {
+                    case 'success':
+                        notification.style.background = '#4CAF50';
+                        break;
+                    case 'error':
+                        notification.style.background = '#f44336';
+                        break;
+                    default:
+                        notification.style.background = '#088178';
+                }
+                
+                // Add to page
+                document.body.appendChild(notification);
+                
+                // Animate in
+                setTimeout(() => {
+                    notification.style.opacity = '1';
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }, 3000);
+            }
+
+            // Smooth scroll for size guide link
+            document.querySelector('.size-guide-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                // You can implement size guide modal or scroll to size guide section
+                showNotification('Size guide coming soon!');
+            });
+
+            // Image zoom on click
+            document.getElementById('MainImg').addEventListener('click', function() {
+                // You can implement a modal image viewer here
+                showNotification('Image zoom feature coming soon!');
             });
         </script>
         <script src="script.js"></script>
