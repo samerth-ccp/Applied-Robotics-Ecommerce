@@ -32,26 +32,42 @@ app.post("/create-checkout-session", async (req, res) => {
     try {
         const { items } = req.body;
 
+        if (!items || items.length === 0) {
+            return res.status(400).json({ error: "No items provided" });
+        }
+
+        // Calculate total quantity for success URL
+        const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
+        const totalAmount = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
-            line_items: items.map((item) => ({
-                price_data: {
-                    currency: "usd",
-                    product_data: {
-                        name: item.name,
-                        images: [
-                            "https://your-domain.com/img/smart_ring.jpg",
-                        ], // Replace with your actual image URL
+            line_items: items.map((item) => {
+                // Determine image based on product name
+                let imageUrl = "https://your-domain.com/img/smart_ring.avif";
+                if (item.name.toLowerCase().includes("blood pressure")) {
+                    imageUrl = "https://your-domain.com/img/blood_pressure_monitor.jpg";
+                } else if (item.name.toLowerCase().includes("smart ring")) {
+                    imageUrl = "https://your-domain.com/img/smart_ring.avif";
+                }
+
+                return {
+                    price_data: {
+                        currency: "usd",
+                        product_data: {
+                            name: item.size ? `${item.name} (${item.size})` : item.name,
+                            images: [imageUrl],
+                        },
+                        unit_amount: item.price,
                     },
-                    unit_amount: item.price,
-                },
-                quantity: item.quantity,
-            })),
+                    quantity: item.quantity,
+                };
+            }),
             mode: "payment",
-            success_url: `${req.protocol}://${req.get("host")}/success?quantity=${req.body.items[0].quantity}`,
+            success_url: `${req.protocol}://${req.get("host")}/success?quantity=${totalQuantity}&total=${totalAmount}`,
             cancel_url: `${req.protocol}://${req.get("host")}/cart.html`,
             metadata: {
-                product_name: "Smart Ring",
+                products: JSON.stringify(items.map(item => ({ name: item.name, quantity: item.quantity, size: item.size }))),
                 company: "Applied Robotics",
             },
         });

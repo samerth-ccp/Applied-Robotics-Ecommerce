@@ -49,17 +49,15 @@
                         <td>Subtotal</td>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td><i class='bx bx-x-circle'></i></td>
-                        <td><img src="./img/heart_monitor.jpg" alt=""></td>
-                        <td>Smart Ring</td>
-                        <td>$249.99</td>
-                        <td><input type="number" id="quantity" value="1" min="1" onchange="updateTotal()"></td>
-                        <td id="subtotal">$249.99</td>
-                    </tr>
+                <tbody id="cart-items">
+                    <!-- Cart items will be loaded dynamically -->
                 </tbody>
             </table>
+            <div id="empty-cart" style="display: none; text-align: center; padding: 50px;">
+                <h3>Your cart is empty</h3>
+                <p>Add some products to your cart to continue shopping.</p>
+                <button class="normal" onclick="window.location.href='shop.html'">Continue Shopping</button>
+            </div>
         </section>
 
         <section id="cart-add" class="section-p1">
@@ -146,35 +144,84 @@
 
         <script src="script.js"></script>
         <script>
-            function updateTotal() {
-                const quantity = parseInt(document.getElementById('quantity').value);
-                const price = 249.99;
-                const total = quantity * price;
+            let cart = [];
 
-                document.getElementById('subtotal').textContent = `$${total.toFixed(2)}`;
-                document.getElementById('cart-subtotal').textContent = `$${total.toFixed(2)}`;
-                document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+            function loadCart() {
+                cart = JSON.parse(localStorage.getItem('cart')) || [];
+                displayCart();
+                updateCartTotal();
+            }
+
+            function displayCart() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                const emptyCartDiv = document.getElementById('empty-cart');
+                
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '';
+                    emptyCartDiv.style.display = 'block';
+                    return;
+                }
+                
+                emptyCartDiv.style.display = 'none';
+                
+                cartItemsContainer.innerHTML = cart.map((item, index) => `
+                    <tr>
+                        <td><i class='bx bx-x-circle' onclick="removeItem(${index})" style="cursor: pointer; color: #ff6b6b;"></i></td>
+                        <td><img src="${item.image}" alt="${item.name}" style="width: 80px; height: 80px; object-fit: cover;"></td>
+                        <td>${item.name}${item.size ? ` (${item.size})` : ''}</td>
+                        <td>$${(item.price / 100).toFixed(2)}</td>
+                        <td><input type="number" value="${item.quantity}" min="1" max="5" onchange="updateQuantity(${index}, this.value)"></td>
+                        <td>$${((item.price * item.quantity) / 100).toFixed(2)}</td>
+                    </tr>
+                `).join('');
+            }
+
+            function removeItem(index) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart();
+            }
+
+            function updateQuantity(index, newQuantity) {
+                const quantity = parseInt(newQuantity);
+                if (quantity > 0 && quantity <= 5) {
+                    cart[index].quantity = quantity;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartTotal();
+                    displayCart();
+                }
+            }
+
+            function updateCartTotal() {
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const totalFormatted = (total / 100).toFixed(2);
+                
+                document.getElementById('cart-subtotal').textContent = `$${totalFormatted}`;
+                document.getElementById('cart-total').textContent = `$${totalFormatted}`;
             }
 
             function redirectToStripe() {
-                // Get the current quantity from the cart
-                const quantity = parseInt(document.getElementById('quantity').value);
+                if (cart.length === 0) {
+                    alert('Your cart is empty. Please add some items before checkout.');
+                    return;
+                }
 
                 // Initialize Stripe with your publishable key
                 const stripe = Stripe('pk_test_51RrQMWAicdvqG4FAOpp4PrpbUysLzY6lBuJNyzBJwGJBFijQHRFhn3Yj1CgwjTSpqDMMDzHsVO8sZjUI56I4Ogvc008L14DcCZ');
 
-                // Create checkout session with the actual quantity
+                // Create checkout session with all cart items
                 fetch('/create-checkout-session', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        items: [{
-                            name: 'Smart Ring',
-                            price: 24999, // Price in cents ($249.99)
-                            quantity: quantity
-                        }]
+                        items: cart.map(item => ({
+                            name: item.name,
+                            price: item.price,
+                            quantity: item.quantity,
+                            size: item.size || null
+                        }))
                     })
                 })
                 .then(response => {
@@ -205,6 +252,9 @@
                     alert('Checkout session creation failed: ' + error.message);
                 });
             }
+
+            // Load cart when page loads
+            document.addEventListener('DOMContentLoaded', loadCart);
         </script>
     </body>
 </html>
