@@ -99,7 +99,7 @@
                         </div>
                         <h4>$249.99</h4>
                     </div>
-                    <a href="cart.html"><i class="bx bx-cart cart"></i></a>
+                    <a href="#" onclick="event.stopPropagation(); addToCartFromHomepage('Smart Ring', 24999, 'img/smart_ring.avif'); return false;"><i class="bx bx-cart cart"></i></a>
                 </div>
                 <div class="pro" onclick="window.location.href='bp-monitor.html';">
                     <img
@@ -120,7 +120,7 @@
                         </div>
                         <h4>$149.99</h4>
                     </div>
-                    <a href="cart.html"><i class="bx bx-cart cart"></i></a>
+                    <a href="#" onclick="event.stopPropagation(); addToCartFromHomepage('Blood Pressure Monitor', 14999, 'img/blood_pressure_monitor.jpg'); return false;"><i class="bx bx-cart cart"></i></a>
                 </div>
             </div>
         </section>
@@ -161,7 +161,7 @@
                         </div>
                         <h4>$299.99</h4>
                     </div>
-                    <a href="cart.html"><i class="bx bx-cart cart"></i></a>
+                    <a href="#" onclick="event.stopPropagation(); addToCartFromHomepage('Smart Ring', 29999, 'img/smart_ring.avif'); return false;"><i class="bx bx-cart cart"></i></a>
                 </div>
             </div>
         </section>
@@ -268,6 +268,94 @@
             </div>
         </footer>
 
+        <script>
+            // Add to cart functionality for homepage
+            function addToCartFromHomepage(productName, price, image) {
+                // Create cart item
+                const cartItem = {
+                    name: productName,
+                    price: price, // Price in cents
+                    quantity: 1,
+                    image: image
+                };
+                
+                // Get existing cart or create new one
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                
+                // Check if item already exists
+                const existingItemIndex = cart.findIndex(item => item.name === cartItem.name);
+                
+                if (existingItemIndex > -1) {
+                    cart[existingItemIndex].quantity += 1;
+                } else {
+                    cart.push(cartItem);
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Show notification
+                showNotification('Added to cart successfully!', 'success');
+            }
+
+            // Notification function
+            function showNotification(message, type = 'info') {
+                // Remove existing notification if any
+                const existingNotification = document.querySelector('.notification');
+                if (existingNotification) {
+                    existingNotification.remove();
+                }
+                
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.textContent = message;
+                
+                // Style the notification
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    color: white;
+                    font-weight: 600;
+                    z-index: 1000;
+                    opacity: 0;
+                    transform: translateX(100%);
+                    transition: all 0.3s ease;
+                `;
+                
+                // Set background color based on type
+                switch(type) {
+                    case 'success':
+                        notification.style.background = '#4CAF50';
+                        break;
+                    case 'error':
+                        notification.style.background = '#f44336';
+                        break;
+                    default:
+                        notification.style.background = '#088178';
+                }
+                
+                // Add to page
+                document.body.appendChild(notification);
+                
+                // Animate in
+                setTimeout(() => {
+                    notification.style.opacity = '1';
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }, 3000);
+            }
+        </script>
         <script src="script.js"></script>
     </body>
 </html>
