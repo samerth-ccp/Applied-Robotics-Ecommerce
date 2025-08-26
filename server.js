@@ -46,7 +46,7 @@ app.post("/create-checkout-session", async (req, res) => {
                 // Determine image based on product name
                 let imageUrl = "https://your-domain.com/img/smart_ring.avif";
                 if (item.name.toLowerCase().includes("blood pressure")) {
-                    imageUrl = "https://your-domain.com/img/blood_pressure_monitor.jpg";
+                    imageUrl = "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80";
                 } else if (item.name.toLowerCase().includes("smart ring")) {
                     imageUrl = "https://your-domain.com/img/smart_ring.avif";
                 }
