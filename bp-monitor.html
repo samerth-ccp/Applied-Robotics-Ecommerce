@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blood Pressure Monitor - Applied Robotics</title>
+        <link rel="icon" type="image/x-icon" href="./img/icon1.png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <section id="header">
+            <a href="#"><img src="img/winrx_logo.png" class="logo" alt=""></a>
+
+            <div>
+                <ul id="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="active" href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a href="cart.html"><i class='bx bx-shopping-bag' ></i></a></li>
+                    <a href="#" id="close"><i class='bx bx-x'></i></a>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a href="cart.html"><i class='bx bx-shopping-bag' ></i></a>
+                <i id="bar" class='bx bx-menu'></i>
+            </div>
+        </section>
+
+        <!-- Product Hero Section -->
+        <section id="product-hero" class="section-p1">
+            <div class="product-badge">
+                <span class="badge-bestseller">BESTSELLER</span>
+            </div>
+        </section>
+
+        <section id="prodetails" class="section-p1">
+            <div class="single-pro-image">
+                <div class="main-image-container">
+                    <img src="./img/blood_pressure_monitor.jpg" width="100%" id="MainImg" alt="Blood Pressure Monitor" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                    <div class="image-zoom-overlay">
+                        <i class='bx bx-search-alt'></i>
+                        <span>Click to zoom</span>
+                    </div>
+                </div>
+
+                <div class="small-img-group">
+                    <div class="small-img-col active">
+                        <img src="./img/blood_pressure_monitor.jpg" width="100%" class="small-img" alt="BP Monitor Main" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="./img/blood_pressure_monitor.jpg" width="100%" class="small-img" alt="BP Monitor Side" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="./img/blood_pressure_monitor.jpg" width="100%" class="small-img" alt="BP Monitor Display" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="./img/blood_pressure_monitor.jpg" width="100%" class="small-img" alt="BP Monitor Cuff" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-pro-details">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <span>Blood Pressure Monitor</span>
+                </nav>
+                
+                <div class="product-header">
+                    <div class="brand-rating">
+                        <span class="brand">Applied Robotics</span>
+                        <div class="rating-container">
+                            <div class="stars">
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bx-star' ></i>
+                            </div>
+                            <span class="rating-text">(89 reviews)</span>
+                        </div>
+                    </div>
+                    <h1>Blood Pressure Monitor - Professional Grade</h1>
+                    <p class="product-subtitle">Clinical accuracy for home monitoring with advanced connectivity</p>
+                </div>
+
+                <div class="price-section">
+                    <div class="price-container">
+                        <span class="current-price">$149.99</span>
+                        <span class="original-price">$199.99</span>
+                        <span class="discount-badge">25% OFF</span>
+                    </div>
+                    <div class="shipping-info">
+                        <i class='bx bx-package'></i>
+                        <span>Free shipping on orders over $100</span>
+                    </div>
+                </div>
+
+                <div class="product-options">
+                    <div class="size-selector">
+                        <label for="size-select">Cuff Size:</label>
+                        <select id="size-select" required>
+                            <option value="">Select Cuff Size</option>
+                            <option value="small">Small (22-32cm)</option>
+                            <option value="medium">Medium (32-42cm)</option>
+                            <option value="large">Large (42-48cm)</option>
+                        </select>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantity:</label>
+                        <div class="quantity-controls">
+                            <button type="button" class="qty-btn minus">-</button>
+                            <input type="number" id="quantity" value="1" min="1" max="5">
+                            <button type="button" class="qty-btn plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary" id="add-to-cart">
+                        <i class='bx bx-cart'></i>
+                        Add To Cart
+                    </button>
+                    <button class="btn-secondary" id="buy-now">
+                        <i class='bx bx-lightning'></i>
+                        Buy Now
+                    </button>
+                    <button class="btn-wishlist" id="add-to-wishlist">
+                        <i class='bx bx-heart'></i>
+                    </button>
+                </div>
+
+                <div class="trust-signals">
+                    <div class="trust-item">
+                        <i class='bx bx-shield-check'></i>
+                        <span>3-Year Warranty</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class='bx bx-refresh'></i>
+                        <span>30-Day Returns</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class='bx bx-support'></i>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Information Tabs -->
+        <section id="product-tabs" class="section-p1">
+            <div class="tabs-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="description">Description</button>
+                    <button class="tab-btn" data-tab="features">Features</button>
+                    <button class="tab-btn" data-tab="specs">Specifications</button>
+                    <button class="tab-btn" data-tab="reviews">Reviews</button>
+                    <button class="tab-btn" data-tab="qa">Q&A</button>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-panel active" id="description">
+                        <h3>Product Description</h3>
+                        <p>The Professional Grade Blood Pressure Monitor by Applied Robotics delivers clinical-level accuracy for home use. This FDA-approved device features advanced oscillometric technology and intelligent cuff inflation for comfortable, precise readings every time.</p>
+                        
+                        <p>Designed for both healthcare professionals and home users, this monitor provides consistent, reliable measurements with memory storage for multiple users. The large LCD display shows systolic, diastolic pressure, and pulse rate with clear, easy-to-read numbers.</p>
+                        
+                        <p>With Bluetooth connectivity and smartphone app integration, you can track your blood pressure trends over time and share data with your healthcare provider for better health management.</p>
+                        
+                        <div class="product-highlights">
+                            <div class="highlight-item">
+                                <i class='bx bx-pulse'></i>
+                                <h4>Clinical Accuracy</h4>
+                                <p>±3mmHg precision validated against mercury sphygmomanometer</p>
+                            </div>
+                            <div class="highlight-item">
+                                <i class='bx bx-mobile'></i>
+                                <h4>Smart Connectivity</h4>
+                                <p>Bluetooth sync with iOS and Android health apps</p>
+                            </div>
+                            <div class="highlight-item">
+                                <i class='bx bx-memory-card'></i>
+                                <h4>Memory Storage</h4>
+                                <p>Stores up to 120 readings for 2 users with timestamps</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <i class='bx bx-pulse'></i>
+                                <h4>Advanced Oscillometric Technology</h4>
+                                <p>Professional-grade measurement technology for accurate systolic and diastolic readings with minimal user intervention.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class='bx bx-shield-check'></i>
+                                <h4>FDA Approved</h4>
+                                <p>Clinically validated and FDA approved for home use, meeting the highest medical device standards.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class='bx bx-mobile'></i>
+                                <h4>Bluetooth Connectivity</h4>
+                                <p>Seamlessly sync readings to your smartphone for comprehensive health tracking and data sharing.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class='bx bx-memory-card'></i>
+                                <h4>Dual User Memory</h4>
+                                <p>Store up to 120 readings for 2 users with date and time stamps for trend analysis.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class='bx bx-heart'></i>
+                                <h4>Irregular Heartbeat Detection</h4>
+                                <p>Automatically detects and alerts users to irregular heartbeat patterns during measurement.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class='bx bx-display'></i>
+                                <h4>Large LCD Display</h4>
+                                <p>Extra-large, backlit display for easy reading in any lighting condition with color-coded results.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="specs">
+                        <h3>Technical Specifications</h3>
+                        <div class="specs-table">
+                            <div class="spec-row">
+                                <span class="spec-label">Measurement Method</span>
+                                <span class="spec-value">Oscillometric</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Pressure Range</span>
+                                <span class="spec-value">0-300 mmHg</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Accuracy</span>
+                                <span class="spec-value">±3 mmHg or ±2% of reading</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Pulse Range</span>
+                                <span class="spec-value">40-200 beats/minute</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Memory</span>
+                                <span class="spec-value">120 readings x 2 users</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Connectivity</span>
+                                <span class="spec-value">Bluetooth 4.0 LE</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Power Source</span>
+                                <span class="spec-value">4 AA batteries or AC adapter</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Cuff Circumference</span>
+                                <span class="spec-value">22-48 cm (8.7-18.9 inches)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Display</span>
+                                <span class="spec-value">3.5" LCD with backlight</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Certifications</span>
+                                <span class="spec-value">FDA, CE, FCC approved</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="reviews">
+                        <h3>Customer Reviews</h3>
+                        <div class="reviews-summary">
+                            <div class="overall-rating">
+                                <span class="rating-number">4.3</span>
+                                <div class="rating-stars">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bx-star'></i>
+                                </div>
+                                <span class="reviews-count">Based on 89 reviews</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Dr. Jennifer L.</span>
+                                    <div class="review-rating">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                    </div>
+                                    <span class="review-date">1 week ago</span>
+                                </div>
+                                <p class="review-text">"I recommend this to my patients. The accuracy is excellent and compares well to clinical measurements. The app integration makes it easy for patients to share their readings."</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Robert K.</span>
+                                    <div class="review-rating">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bx-star'></i>
+                                    </div>
+                                    <span class="review-date">3 weeks ago</span>
+                                </div>
+                                <p class="review-text">"Very reliable device. I've been tracking my BP for 6 months now. The memory function is great for keeping records for my doctor visits."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="qa">
+                        <h3>Questions & Answers</h3>
+                        <div class="qa-list">
+                            <div class="qa-item">
+                                <h4 class="question">Q: How accurate is this compared to hospital monitors?</h4>
+                                <p class="answer">A: This monitor has clinical-grade accuracy of ±3mmHg, which is equivalent to professional medical equipment used in hospitals and clinics.</p>
+                            </div>
+                            <div class="qa-item">
+                                <h4 class="question">Q: Can it detect irregular heartbeats?</h4>
+                                <p class="answer">A: Yes, the monitor has built-in arrhythmia detection and will alert you if irregular heartbeat patterns are detected during measurement.</p>
+                            </div>
+                            <div class="qa-item">
+                                <h4 class="question">Q: What cuff size should I choose?</h4>
+                                <p class="answer">A: Measure your upper arm circumference. Small: 22-32cm, Medium: 32-42cm, Large: 42-48cm. Proper cuff size is essential for accurate readings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="product1" class="section-p1">
+            <h2>Related Products</h2>
+            <p>You might also like</p>
+            <div class="pro-container">
+                <div class="pro" onclick="window.location.href='sproduct.html';">
+                    <img class="shirt" src="img/smart_ring.avif" alt="Smart Ring" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                    <div class="des">
+                        <span>Applied Robotics</span>
+                        <h5>Smart Ring</h5>
+                        <div class="star">
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                        </div>
+                        <h4>$249.99</h4>
+                    </div>
+                    <a href="cart.html"><i class='bx bx-cart cart' ></i></a>
+                </div>
+                <div class="pro">
+                    <img class="shirt" src="img/heart_monitor.jpg" alt="Heart Monitor" onerror="this.style.backgroundColor='#f0f0f0'; this.style.border='1px solid #ddd';">
+                    <div class="des">
+                        <span>Applied Robotics</span>
+                        <h5>Professional Heart Monitor</h5>
+                        <div class="star">
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                        </div>
+                        <h4>$399.99</h4>
+                    </div>
+                    <a href="cart.html"><i class='bx bx-cart cart' ></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up For Newsletters</h4>
+                <p>Get E-mail updates about our latest healthcare technology and <span>special offers.</span></p>
+            </div>
+            <div class="form">
+                <input type="text" placeholder="Your email address">
+                <button class="normal">Sign Up</button>
+            </div>
+        </section>
+
+        <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="./img/winrx_logo.png" alt="">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> Box 205 Stn. Fort Langley, Langley, BC, V1M 2R5</p>
+                <p><strong>Phone:</strong> (778) 949 - 6264</p>
+                <p><strong>Hours:</strong> 9:00 - 17:00, Mon - Fri PST</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class='bx bxl-facebook'></i>
+                        <i class='bx bxl-twitter' ></i>
+                        <i class='bx bxl-instagram' ></i>
+                        <i class='bx bxl-pinterest-alt' ></i>
+                        <i class='bx bxl-youtube' ></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact Us</a>
+            </div>
+
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
+
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play</p>
+                <div class="row">
+                    <img src="./img/pay/app.jpg" alt="">
+                    <img src="./img/pay/play.jpg" alt="">
+                </div>
+                <p>Secured Payment Gateways</p>
+                <img src="./img/pay/pay.png" alt="">
+            </div>
+
+            <div class="copyright">
+                <p>© 2024, Applied Robotics - Healthcare Technology Solutions</p>
+            </div>
+        </footer>
+
+        <script>
+            // Image gallery functionality
+            var MainImg = document.getElementById("MainImg");
+            var smallimg = document.getElementsByClassName("small-img");
+            var smallimgCol = document.getElementsByClassName("small-img-col");
+
+            for (let i = 0; i < smallimg.length; i++) {
+                smallimg[i].onclick = function() {
+                    MainImg.src = smallimg[i].src;
+                    
+                    // Update active state
+                    for (let j = 0; j < smallimgCol.length; j++) {
+                        smallimgCol[j].classList.remove('active');
+                    }
+                    smallimgCol[i].classList.add('active');
+                }
+            }
+
+            // Quantity controls
+            const quantityInput = document.getElementById('quantity');
+            const minusBtn = document.querySelector('.qty-btn.minus');
+            const plusBtn = document.querySelector('.qty-btn.plus');
+
+            minusBtn.addEventListener('click', function() {
+                const currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                }
+            });
+
+            plusBtn.addEventListener('click', function() {
+                const currentValue = parseInt(quantityInput.value);
+                if (currentValue < 5) {
+                    quantityInput.value = currentValue + 1;
+                }
+            });
+
+            // Tab functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and panels
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabPanels.forEach(p => p.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding panel
+                    this.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+
+            // Wishlist functionality
+            document.getElementById('add-to-wishlist').addEventListener('click', function() {
+                this.style.color = this.style.color === 'rgb(255, 107, 107)' ? '#666' : '#ff6b6b';
+                
+                // You can add actual wishlist functionality here
+                const isAdded = this.style.color === 'rgb(255, 107, 107)';
+                const message = isAdded ? 'Added to wishlist!' : 'Removed from wishlist!';
+                
+                // Show a subtle notification
+                showNotification(message);
+            });
+
+            // Add to cart functionality
+            document.getElementById('add-to-cart').addEventListener('click', function() {
+                // Get selected options
+                const sizeSelect = document.getElementById('size-select');
+                const quantityInput = document.getElementById('quantity');
+                
+                if (!sizeSelect.value) {
+                    showNotification('Please select a cuff size before adding to cart.', 'error');
+                    return;
+                }
+                
+                // Store cart data in localStorage
+                const cartItem = {
+                    name: 'Blood Pressure Monitor',
+                    price: 14999, // Price in cents
+                    size: sizeSelect.value,
+                    quantity: parseInt(quantityInput.value),
+                    image: './img/blood_pressure_monitor.jpg'
+                };
+                
+                // Get existing cart or create new one
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                
+                // Check if item already exists with same size
+                const existingItemIndex = cart.findIndex(item => 
+                    item.name === cartItem.name && 
+                    item.size === cartItem.size
+                );
+                
+                if (existingItemIndex > -1) {
+                    cart[existingItemIndex].quantity += cartItem.quantity;
+                } else {
+                    cart.push(cartItem);
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Update button temporarily to show success
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="bx bx-check"></i>Added to Cart!';
+                this.style.background = '#4CAF50';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.background = '#088178';
+                }, 2000);
+                
+                showNotification('Item added to cart successfully!', 'success');
+            });
+
+            // Buy now functionality
+            document.getElementById('buy-now').addEventListener('click', function() {
+                const sizeSelect = document.getElementById('size-select');
+                
+                if (!sizeSelect.value) {
+                    showNotification('Please select a cuff size before purchasing.', 'error');
+                    return;
+                }
+                
+                // Add to cart first
+                document.getElementById('add-to-cart').click();
+                
+                // Redirect to cart after a brief delay
+                setTimeout(() => {
+                    window.location.href = 'cart.html';
+                }, 1000);
+            });
+
+            // Notification function
+            function showNotification(message, type = 'info') {
+                // Remove existing notification if any
+                const existingNotification = document.querySelector('.notification');
+                if (existingNotification) {
+                    existingNotification.remove();
+                }
+                
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.textContent = message;
+                
+                // Style the notification
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    color: white;
+                    font-weight: 600;
+                    z-index: 1000;
+                    opacity: 0;
+                    transform: translateX(100%);
+                    transition: all 0.3s ease;
+                `;
+                
+                // Set background color based on type
+                switch(type) {
+                    case 'success':
+                        notification.style.background = '#4CAF50';
+                        break;
+                    case 'error':
+                        notification.style.background = '#f44336';
+                        break;
+                    default:
+                        notification.style.background = '#088178';
+                }
+                
+                // Add to page
+                document.body.appendChild(notification);
+                
+                // Animate in
+                setTimeout(() => {
+                    notification.style.opacity = '1';
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }, 3000);
+            }
+        </script>
+        <script src="script.js"></script>
+    </body>
+</html>
